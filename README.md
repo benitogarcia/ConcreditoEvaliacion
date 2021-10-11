@@ -1,6 +1,6 @@
 # ConcreditoEvaliacion
 
-### Intalción de la base de datos 📋
+### Intalación de la base de datos 📋
 
 ```
 Cargar el script sql de la caperta db.
