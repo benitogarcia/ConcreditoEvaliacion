@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>ConCredito | Prospectos</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<a class="navbar-brand" href="#">Concredito</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="#" th:href="@{/}">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#" th:href="@{/nuevo}">Nuevo</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<br>
+	<div class="container">
+		<h2>Lista de Prospectos</h2>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>Nombre</th>
+					<th>Primer Ape.</th>
+					<th>Segundo Ape.</th>
+                    <th>Status</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pros: ${prospectos}">
+					<td th:text="${pros.nombre}"></td>
+					<td th:text="${pros.primerApellido}"></td>
+					<td th:text="${pros.segundoApellido}"></td>
+					<td th:switch="${pros.status}">
+						<b class="text-primary" th:case="'ENVIADO'">
+							ENVIADO
+						</b>
+						<b class="text-success" th:case="'AUTORIZADO'">
+							AUTORIZADO
+						</b>
+						<b class="text-danger" th:case="'RECHAZADO'">
+							RECHAZADO
+						</b>
+					</td>
+                    <td th:switch="${pros.status}">
+                        <b class="text-primary" th:case="'ENVIADO'">
+                            <a href="#" th:href="@{'/evaluar/' + ${pros.id}}" class="btn btn-warning" role="button">Evaluar</a>
+                        </b>
+                        <b class="text-success" th:case="*">
+                            <button type="button" class="btn btn-secondary" disabled>Evaluado</button>
+                        </b>
+                    </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

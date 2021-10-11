@@ -1,0 +1,6 @@
+.has-error .help-block {
+  color: red !important;
+}
+small.help-block {
+   color: #F44336 !important;
+}

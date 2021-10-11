@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>ConCredito | Evaluación</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" th:href="@{/bootstrap/4.5.2/css/bootstrap.min.css}" href="static/bootstrap/4.5.2/css/bootstrap.min.css" />
+		<link rel="stylesheet" th:href="@{/font-awesome/4.7.0/css/font-awesome.min.css}" href="static/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<script th:src="@{/jquery/3.5.1/jquery.min.js}" src="static/jquery/3.5.1/jquery.min.js"></script>
+		<script th:src="@{/popper.js/1.16.0/umd/popper.min.js}" src="static/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script th:src="@{/bootstrap/4.5.2/js/bootstrap.min.js}" src="static/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+			<a class="navbar-brand" href="#">Concredito</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="#" th:href="@{/}">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" th:href="@{/nuevo}">Nuevo</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<br>
+		<div class="container">
+			<h2>Evaluar Prospecto</h2>
+			<div class="row">
+				<div class="col-sm-12 col-md-6 col-lg-6 border border-secondary">
+					<div class="container">
+						<div class="">
+							<h3 class="text-center">Datos de cliente:</h3>
+							<p><b>Nombre:</b> <span th:text="${prospecto.nombre}"></span> </p>
+							<p><b>Primer Ape.</b> <span th:text="${prospecto.primerApellido}"></span> </p>
+							<p><b>Segundo Ape.</b> <span th:text="${prospecto.segundoApellido}"></span> </p>
+							<p><b>Teléfono:</b> <span th:text="${prospecto.telefono}"></span> </p>
+							<p><b>RFC:</b> <span th:text="${prospecto.rfc}"></span> </p>
+							<p th:each="doc: ${documentos}">
+								<button type="button" class="btn btn-link btn-block btnDownloadDoc" th:value="${doc}">
+								<span th:text="${doc}"></span> <i class="fa fa-download" aria-hidden="true"></i>
+								</button>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6 border border-secondary">
+					<div class="container">
+						<p class="bg-danger text-white" id="tittle"></p>
+						<p class="bg-danger text-white" id="messages"></p>
+						<p class="bg-success text-white" id="success"></p>
+						<form class="" id="formEvaluar">
+							<div class="form-check">
+								<label class="form-check-label" for="status">
+									<input type="radio" class="form-check-input" id="autorizar" name="status" value="1" checked>
+									AUTORIZAR
+								</label>
+							</div>
+							<input type="hidden" id="id" th:value="${prospecto.id}">
+							<div class="form-check">
+								<label class="form-check-label" for="status">
+									<input type="radio" class="form-check-input" id="rechazar" name="status" value="0">
+									RECHAZAR
+								</label>
+							</div>
+							<div class="form-group">
+								<label for="comment">Observaciones de rechazo:</label>
+								<textarea class="form-control" rows="5" id="observacion" name="observacion"></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary btn-block">GUARDAR</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script th:src="@{/js/prospectos/evaluacion.js}" src="static/js/prospectos/evaluacion.js"></script>
+	</body>
+</html>

@@ -1,0 +1,2 @@
+-- insert into prospectos (id, calle, codigo_postal, colonia, nombre, numero, observacion, primer_apellido, rfc, ruta_docs, segundo_apellido, status, telefono) 
+-- values (null, 'S/N', '123456', 'EMILIANO ZAPATA', 'JOSE BENITO', 0, '', '', 'GARCIA', '', '1A2S3D4F5G6H7J8K9L', 'Doc 6479013246907477069CV JOSE BENITO GARCIA SOLANO V2;Doc 6365428290276074513CV JOSE BENITO GARCIA SOLANO V2.pdf', '', 'ENVIADO', '9876543210')
