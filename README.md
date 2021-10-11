@@ -1,4 +1,4 @@
-# ConcreditoEvaliacion
+# ConcreditoEvaluación
 
 ### Intalación de la base de datos 📋
 
